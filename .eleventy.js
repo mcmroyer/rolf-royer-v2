@@ -41,6 +41,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("sitemap.xml");
   eleventyConfig.addPassthroughCopy("CNAME");
+  eleventyConfig.addPassthroughCopy("_headers");
   eleventyConfig.addPassthroughCopy("admin");
 
   // Pull-quotes: write `> quote` in markdown, get the site's real
