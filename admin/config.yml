@@ -30,3 +30,33 @@ collections:
       - { label: "Contenu de l'article", name: "body", widget: "markdown", hint: "Pour insérer une photo dans le texte, utilisez le bouton image de la barre d'outils — vous pouvez en ajouter autant que vous voulez. Pour une citation mise en avant, utilisez le bouton citation." }
       - { label: "Layout", name: "layout", widget: "hidden", default: "article-layout.njk" }
       - { label: "Tags", name: "tags", widget: "hidden", default: "articles" }
+
+  - name: "case-cards"
+    label: "Cas clients — cartes courtes"
+    label_singular: "une carte"
+    description: "Les 3 courtes présentations en haut de la page Cas clients."
+    folder: "case-cards"
+    create: true
+    slug: "{{fields.title}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Ordre d'affichage", name: "order", widget: "number", hint: "1 = affiché en premier, 2 = deuxième, etc." }
+      - { label: "Titre (prénom — fonction, secteur)", name: "title", widget: "string", hint: "Ex: Jérémy — Fondateur, secteur technologique" }
+      - { label: "Texte", name: "text", widget: "text" }
+
+  - name: "case-studies"
+    label: "Cas clients — cession / carve-out"
+    label_singular: "un cas"
+    description: "Les 4 cas détaillés de la section Cession, transmission & carve-out."
+    folder: "case-studies"
+    create: true
+    slug: "{{fields.title}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Ordre d'affichage", name: "order", widget: "number", hint: "1 = affiché en premier, 2 = deuxième, etc." }
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Contexte", name: "lede", widget: "text", hint: "La situation du dirigeant, en 2-3 phrases." }
+      - { label: "Accompagnement", name: "accompagnement", widget: "text", hint: "Liste courte de ce qui a été fait, séparé par des virgules." }
+      - { label: "Citation de conclusion", name: "quote", widget: "text", hint: "Sans les guillemets, ils sont ajoutés automatiquement." }

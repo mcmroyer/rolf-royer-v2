@@ -1,0 +1,207 @@
+---
+permalink: /cas-clients.html
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Cas clients | Rolf Royer — Sparring partner de dirigeants</title>
+<meta name="description" content="Accompagnements de dirigeants présentés de façon anonymisée : structuration d'entreprise, direction générale, cession, carve-out et transmission.">
+<link rel="canonical" href="https://rolfroyer.com/cas-clients.html">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cas clients | Rolf Royer">
+<meta property="og:description" content="Accompagnements de dirigeants présentés de façon anonymisée.">
+<meta property="og:url" content="https://rolfroyer.com/cas-clients.html">
+<meta property="og:image" content="https://rolfroyer.com/images/rolf-royer-og.jpg">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,480;0,9..144,500;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand-mark">      <span class="brand-mark__text">Rolf Royer<small>Sparring partner de dirigeants</small></span>
+    </a>
+    <nav class="nav-primary" aria-label="Navigation principale">
+      <div class="nav-links">
+        <a href="accompagnements.html">Accompagnements</a>
+        <a href="pour-les-dirigeants.html">Pour les dirigeants</a>
+        <a href="methode.html">Méthode</a>
+        <a href="parcours.html">Parcours</a>
+        <a href="cas-clients.html">Cas clients</a>
+        <a href="points-de-vue.html">Points de vue</a>
+        <a href="a-propos.html">À propos</a>
+      </div>
+      <a href="contact.html" class="btn btn--primary btn--laiton">Échanger en toute confidentialité</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile">
+  <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="accompagnements.html">Accompagnements</a></li>
+    <li><a href="pour-les-dirigeants.html">Pour les dirigeants</a></li>
+    <li><a href="methode.html">Méthode</a></li>
+    <li><a href="parcours.html">Parcours</a></li>
+    <li><a href="cas-clients.html">Cas clients</a></li>
+    <li><a href="points-de-vue.html">Points de vue</a></li>
+    <li><a href="a-propos.html">À propos</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mobile-nav__footer">
+    <a href="contact.html" class="btn btn--primary btn--on-dark">Échanger en toute confidentialité</a>
+    <a href="mailto:rolf.royer@visconti.partners">rolf.royer@visconti.partners</a>
+    <a href="tel:+33673514809">+33 6 73 51 48 09</a>
+    <a href="https://www.linkedin.com/in/rolf-royer/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <p class="breadcrumb"><a href="index.html">Accueil</a> / Cas clients</p>
+      <p class="eyebrow">Cas clients</p>
+      <h1>Des accompagnements présentés de façon anonymisée.</h1>
+      <p class="lede">Par principe, aucun client n'est nommé sans accord écrit. Ces cas restent volontairement généraux&nbsp;: prénom seul, sans nom d'entreprise.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="grid grid--3">
+        {% for card in collections.caseCards | sort(attribute='data.order') %}
+        <div class="card reveal{% if loop.index > 1 %} reveal-delay-{{ loop.index0 }}{% endif %}">
+          <p class="card__index">{{ card.data.order | pad2 }}</p>
+          <h3>{{ card.data.title | safe }}</h3>
+          <p>{{ card.data.text | safe }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <div class="ambiance-banner" style="aspect-ratio:16/9">
+    <img src="images/ambiance-dirigeante.webp" alt="" loading="lazy" style="object-position:center 25%">
+  </div>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="reveal max-w-prose">
+        <p class="eyebrow">Cession, transmission &amp; carve-out</p>
+        <h2>Accompagner les moments où l'entreprise change de mains.</h2>
+        <p class="lede mt-sm">J'accompagne les dirigeants dans les périodes où l'entreprise change de mains, de périmètre ou de gouvernance. Mon rôle n'est pas de conduire la transaction financière ou juridique, mais d'aider le dirigeant à préparer l'organisation, sécuriser la performance pendant l'opération et réussir l'après-cession.</p>
+      </div>
+
+      <div class="accordion mt-lg">
+        {% for case in collections.caseStudies | sort(attribute='data.order') %}
+        <div class="accordion-item">
+          <h4><button class="accordion-item__trigger" aria-expanded="false"><span><span class="process-item__num" style="margin-right:1rem">{{ case.data.order | pad2 }}</span>{{ case.data.title | safe }}</span><span class="accordion-item__icon" aria-hidden="true"></span></button></h4>
+          <div class="accordion-item__panel"><div class="accordion-item__panel-inner">
+            <p class="lede">{{ case.data.lede | safe }}</p>
+            <p class="mt-sm"><strong>Accompagnement&nbsp;:</strong> {{ case.data.accompagnement | safe }}</p>
+            <p class="pull mt-sm" style="font-size:1.1rem">« {{ case.data.quote | safe }} »</p>
+          </div></div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <div class="ambiance-banner">
+    <img src="images/ambiance-pont-paris.webp" alt="" loading="lazy">
+  </div>
+
+  <section class="section section--charcoal">
+    <div class="container text-center reveal">
+      <p class="eyebrow" style="justify-content:center">Une approche centrée sur le dirigeant</p>
+      <p class="lede max-w-prose mx-auto">Une cession ne se résume jamais à une valorisation ou une signature. Elle touche simultanément la stratégie, le management, les équipes, la performance opérationnelle et l'avenir personnel du dirigeant. C'est précisément à cette intersection que j'interviens&nbsp;: comme sparring partner du dirigeant, avant, pendant et après les moments de transformation capitalistique.</p>
+      <p class="pull mt-md">Préparer. Sécuriser. Transmettre. Rebondir.</p>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container text-center reveal">
+      <p class="eyebrow" style="justify-content:center">Principe de vérité</p>
+      <h2 class="max-w-prose mx-auto">Aucun résultat, aucun chiffre n'est publié sans source ni autorisation.</h2>
+      <p class="lede max-w-prose mx-auto mt-sm">Des références plus complètes, avec accord des personnes concernées, peuvent être partagées directement dans le cadre d'un échange confidentiel.</p>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <div class="reveal">
+        <h2>Votre situation vous semble proche&nbsp;?</h2>
+        <p class="lede">Le premier échange permet de voir si cet accompagnement peut vous être utile.</p>
+        <div class="cta-band__actions">
+          <a href="contact.html" class="btn btn--primary btn--on-dark">Échanger en toute confidentialité</a>
+          <a href="accompagnements.html" class="btn btn--ghost">Voir les accompagnements</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a href="index.html" class="brand-mark">          <span class="brand-mark__text">Rolf Royer<small>Sparring partner de dirigeants</small></span>
+        </a>
+        <p class="footer-tagline">Accompagnement de dirigeants, membres de COMEX et entrepreneurs en France et aux États-Unis.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="accompagnements.html">Accompagnements</a></li>
+          <li><a href="pour-les-dirigeants.html">Pour les dirigeants</a></li>
+          <li><a href="methode.html">Méthode</a></li>
+          <li><a href="parcours.html">Parcours</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="cas-clients.html">Cas clients</a></li>
+          <li><a href="points-de-vue.html">Points de vue</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:rolf.royer@visconti.partners">rolf.royer@visconti.partners</a></li>
+          <li><a href="tel:+33673514809">+33 6 73 51 48 09</a></li>
+          <li><a href="https://www.linkedin.com/in/rolf-royer/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="rule">
+    <div class="site-footer__bottom">
+      <p>© <span data-current-year></span> Rolf Royer. Tous droits réservés.</p>
+      <ul>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

@@ -7,6 +7,8 @@ module.exports = function (eleventyConfig) {
     markdownIt.render(content || "")
   );
 
+  eleventyConfig.addFilter("pad2", (n) => String(n).padStart(2, "0"));
+
   // Turns a plain YouTube/Vimeo link (what someone actually pastes) into an
   // embeddable player URL.
   eleventyConfig.addFilter("embedUrl", (url) => {
@@ -24,7 +26,6 @@ module.exports = function (eleventyConfig) {
   const staticPages = [
     "a-propos.html",
     "accompagnements.html",
-    "cas-clients.html",
     "confidentialite.html",
     "contact.html",
     "index.html",
