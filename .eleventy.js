@@ -6,9 +6,23 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("markdown", (content) =>
     markdownIt.render(content || "")
   );
-  // The 12 existing pages stay exactly as hand-written HTML — copied through
-  // untouched, never run through the template engine.
-  eleventyConfig.addPassthroughCopy("*.html", { expand: false });
+  // The 10 hand-written pages stay exactly as-is, copied through untouched.
+  // points-de-vue.html and the article are now generated from .njk/.md —
+  // named explicitly here (not a *.html glob) so their stale root copies
+  // (kept only for GitHub Pages, which can't run this build) never win.
+  const staticPages = [
+    "a-propos.html",
+    "accompagnements.html",
+    "cas-clients.html",
+    "confidentialite.html",
+    "contact.html",
+    "index.html",
+    "mentions-legales.html",
+    "methode.html",
+    "parcours.html",
+    "pour-les-dirigeants.html",
+  ];
+  staticPages.forEach((page) => eleventyConfig.addPassthroughCopy(page));
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("images");
