@@ -1,0 +1,32 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/blog-uploads"
+public_folder: "images/blog-uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "articles"
+    label: "Points de vue (articles)"
+    label_singular: "un article"
+    folder: "articles"
+    create: true
+    slug: "{{fields.title}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Titre", name: "title", widget: "string", hint: "Sans point final, il est ajouté automatiquement." }
+      - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Catégorie", name: "eyebrow", widget: "string", default: "Leadership", hint: "Ex: France – États-Unis, Leadership, Transformation…" }
+      - { label: "Temps de lecture", name: "readTime", widget: "string", default: "5 min de lecture" }
+      - { label: "Photo de couverture", name: "coverImage", widget: "image" }
+      - { label: "Accroche (affichée sous le titre)", name: "lede", widget: "text", hint: "1 à 2 phrases qui donnent envie de lire." }
+      - { label: "Introduction (affichée à côté de la photo)", name: "intro", widget: "text", hint: "1 à 2 paragraphes courts." }
+      - { label: "Vidéo (optionnel)", name: "videoUrl", widget: "string", required: false, hint: "Collez un lien YouTube ou Vimeo — elle s'affichera automatiquement au début de l'article." }
+      - { label: "Résumé pour la liste des articles", name: "excerpt", widget: "text" }
+      - { label: "Description (référencement Google)", name: "description", widget: "text" }
+      - { label: "Contenu de l'article", name: "body", widget: "markdown", hint: "Pour insérer une photo dans le texte, utilisez le bouton image de la barre d'outils — vous pouvez en ajouter autant que vous voulez. Pour une citation mise en avant, utilisez le bouton citation." }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "article-layout.njk" }
+      - { label: "Tags", name: "tags", widget: "hidden", default: "articles" }

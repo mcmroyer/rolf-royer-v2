@@ -955,6 +955,35 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   width: 6px; height: 1px;
   background: var(--accent);
 }
+.article-body img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 2em 0;
+  border: 1px solid var(--grey-300);
+}
+.article-body figcaption {
+  font-size: 0.85rem;
+  color: var(--grey-500);
+  margin-top: -1.5em;
+  margin-bottom: 2em;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--grey-300);
+  margin-bottom: var(--space-md);
+}
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
 .article-share {
   display: flex;

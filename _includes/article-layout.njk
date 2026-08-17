@@ -103,6 +103,16 @@
     </div>
   </section>
 
+  {% if videoUrl %}
+  <section class="section section--tight" style="padding-bottom:0">
+    <div class="container article-body">
+      <div class="video-embed">
+        <iframe src="{{ videoUrl | embedUrl }}" title="{{ title | safe }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
   <section class="section section--tight">
     <div class="container article-body reveal">
 

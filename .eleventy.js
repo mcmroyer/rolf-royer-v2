@@ -6,6 +6,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("markdown", (content) =>
     markdownIt.render(content || "")
   );
+
+  // Turns a plain YouTube/Vimeo link (what someone actually pastes) into an
+  // embeddable player URL.
+  eleventyConfig.addFilter("embedUrl", (url) => {
+    if (!url) return "";
+    const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/);
+    if (yt) return `https://www.youtube.com/embed/${yt[1]}`;
+    const vimeo = url.match(/vimeo\.com\/(\d+)/);
+    if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}`;
+    return url;
+  });
   // The 10 hand-written pages stay exactly as-is, copied through untouched.
   // points-de-vue.html and the article are now generated from .njk/.md —
   // named explicitly here (not a *.html glob) so their stale root copies
@@ -29,6 +40,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("sitemap.xml");
   eleventyConfig.addPassthroughCopy("CNAME");
+  eleventyConfig.addPassthroughCopy("admin");
 
   // Pull-quotes: write `> quote` in markdown, get the site's real
   // `<p class="pull">` styling instead of a generic <blockquote><p>...</p></blockquote>.
