@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8937"],
       "port": 8937
+    },
+    {
+      "name": "rolf-royer-v2-build",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8941", "--directory", "_site"],
+      "port": 8941
     }
   ]
 }

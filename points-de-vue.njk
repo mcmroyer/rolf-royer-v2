@@ -1,3 +1,6 @@
+---
+permalink: /points-de-vue.html
+---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -77,24 +80,27 @@
   <section class="section section--tight">
     <div class="container">
 
-      <a href="points-de-vue-amerique-ne-se-pilote-pas-depuis-paris.html" class="card reveal" style="display:block; text-decoration:none">
+      {% for article in collections.articles | reverse %}
+      <a href="{{ article.url }}" class="card reveal" style="display:block; text-decoration:none">
         <div class="grid grid--5-7" style="align-items:center">
           <div class="article-cover article-cover--sm" aria-hidden="true" style="aspect-ratio:3/4">
-            <img src="images/ambiance-hublot-avion.webp" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;position:relative;z-index:1">
+            <img src="{{ article.data.coverImage }}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:{{ article.data.coverImagePosition or 'center' }};position:relative;z-index:1">
           </div>
           <div>
             <div class="article-card__meta">
-              <span>France – États-Unis</span>
-              <span>8 min de lecture</span>
+              <span>{{ article.data.eyebrow | safe }}</span>
+              <span>{{ article.data.readTime | safe }}</span>
             </div>
-            <h2>L'Amérique ne se pilote pas depuis Paris.</h2>
-            <p>Ce que cinq années à la tête d'une filiale aéronautique à Atlanta révèlent du leadership transatlantique — et des trois erreurs qui reviennent sans cesse chez les dirigeants français.</p>
+            <h2>{{ article.data.title | safe }}.</h2>
+            <p>{{ (article.data.excerpt or article.data.description) | safe }}</p>
             <span class="article-card__link">Lire l'article
               <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </div>
         </div>
       </a>
+      {% if not loop.last %}<hr class="rule mt-lg" style="margin-bottom:var(--space-lg)">{% endif %}
+      {% endfor %}
 
       <hr class="rule mt-lg" style="margin-bottom:var(--space-lg)">
 
