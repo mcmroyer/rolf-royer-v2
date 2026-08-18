@@ -790,7 +790,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: radial-gradient(ellipse 55% 60% at 90% 0%, rgba(156,122,69,0.14), transparent 60%);
   pointer-events: none;
 }
-.page-hero__inner { position: relative; max-width: 900px; }
+.page-hero__inner { position: relative; max-width: 1100px; }
 .breadcrumb { font-size: 0.8rem; color: rgba(249,248,246,0.55); margin-bottom: 1.2rem; letter-spacing: 0.03em; }
 .breadcrumb a { color: rgba(249,248,246,0.75); }
 .breadcrumb a:hover { color: var(--accent-on-dark); }
