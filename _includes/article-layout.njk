@@ -1,23 +1,26 @@
+{% set s = strings[lang or 'fr'] %}
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ lang or 'fr' }}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>{{ title | safe }} | Points de vue — Rolf Royer</title>
+<title>{{ title | safe }} | {{ s.pointsDeVue }} — Rolf Royer</title>
 <meta name="description" content="{{ description | safe }}">
 <link rel="canonical" href="https://rolfroyer.com{{ permalink }}">
-<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="alternate" hreflang="{{ lang or 'fr' }}" href="https://rolfroyer.com{{ permalink }}">
+{% if altLangUrl %}<link rel="alternate" hreflang="{{ altLang }}" href="https://rolfroyer.com{{ altLangUrl }}">{% endif %}
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{{ title | safe }} | Rolf Royer">
 <meta property="og:description" content="{{ (ogDescription or description) | safe }}">
 <meta property="og:url" content="https://rolfroyer.com{{ permalink }}">
 <meta property="og:image" content="https://rolfroyer.com/images/rolf-royer-og.jpg">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="{% if lang == 'en' %}en_US{% else %}fr_FR{% endif %}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,480;0,9..144,500;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,19 +37,19 @@
 
 <header class="site-header">
   <div class="site-header__inner">
-    <a href="index.html" class="brand-mark">      <span class="brand-mark__text">Rolf Royer<small>Sparring partner de dirigeants</small></span>
+    <a href="/index.html" class="brand-mark">      <span class="brand-mark__text">Rolf Royer<small>Sparring partner de dirigeants</small></span>
     </a>
     <nav class="nav-primary" aria-label="Navigation principale">
       <div class="nav-links">
-        <a href="accompagnements.html">Accompagnements</a>
-        <a href="pour-les-dirigeants.html">Pour les dirigeants</a>
-        <a href="methode.html">Méthode</a>
-        <a href="parcours.html">Parcours</a>
-        <a href="cas-clients.html">Cas clients</a>
-        <a href="points-de-vue.html">Points de vue</a>
-        <a href="a-propos.html">À propos</a>
+        <a href="/accompagnements.html">{{ s.nav.accompagnements }}</a>
+        <a href="/pour-les-dirigeants.html">{{ s.nav.pourLesDirigeants }}</a>
+        <a href="/methode.html">{{ s.nav.methode }}</a>
+        <a href="/parcours.html">{{ s.nav.parcours }}</a>
+        <a href="/cas-clients.html">{{ s.nav.casClients }}</a>
+        <a href="/points-de-vue.html">{{ s.nav.pointsDeVue }}</a>
+        <a href="/a-propos.html">{{ s.nav.aPropos }}</a>
       </div>
-      <a href="contact.html" class="btn btn--primary btn--laiton">Échanger en toute confidentialité</a>
+      <a href="/contact.html" class="btn btn--primary btn--laiton">{{ s.headerCta }}</a>
     </nav>
     <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav">
       <span></span><span></span><span></span>
@@ -56,18 +59,18 @@
 
 <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile">
   <ul>
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="accompagnements.html">Accompagnements</a></li>
-    <li><a href="pour-les-dirigeants.html">Pour les dirigeants</a></li>
-    <li><a href="methode.html">Méthode</a></li>
-    <li><a href="parcours.html">Parcours</a></li>
-    <li><a href="cas-clients.html">Cas clients</a></li>
-    <li><a href="points-de-vue.html">Points de vue</a></li>
-    <li><a href="a-propos.html">À propos</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="/index.html">{{ s.home }}</a></li>
+    <li><a href="/accompagnements.html">{{ s.nav.accompagnements }}</a></li>
+    <li><a href="/pour-les-dirigeants.html">{{ s.nav.pourLesDirigeants }}</a></li>
+    <li><a href="/methode.html">{{ s.nav.methode }}</a></li>
+    <li><a href="/parcours.html">{{ s.nav.parcours }}</a></li>
+    <li><a href="/cas-clients.html">{{ s.nav.casClients }}</a></li>
+    <li><a href="/points-de-vue.html">{{ s.nav.pointsDeVue }}</a></li>
+    <li><a href="/a-propos.html">{{ s.nav.aPropos }}</a></li>
+    <li><a href="/contact.html">{{ s.nav.contact }}</a></li>
   </ul>
   <div class="mobile-nav__footer">
-    <a href="contact.html" class="btn btn--primary btn--on-dark">Échanger en toute confidentialité</a>
+    <a href="/contact.html" class="btn btn--primary btn--on-dark">{{ s.headerCta }}</a>
     <a href="mailto:rolf.royer@visconti.partners">rolf.royer@visconti.partners</a>
     <a href="tel:+33673514809">+33 6 73 51 48 09</a>
     <a href="https://www.linkedin.com/in/rolf-royer/" target="_blank" rel="noopener">LinkedIn</a>
@@ -78,7 +81,7 @@
 
   <section class="page-hero">
     <div class="container page-hero__inner">
-      <p class="breadcrumb"><a href="index.html">Accueil</a> / <a href="points-de-vue.html">Points de vue</a> / {{ title | safe }}</p>
+      <p class="breadcrumb"><a href="/index.html">{{ s.home }}</a> / <a href="/points-de-vue.html">{{ s.pointsDeVue }}</a> / {{ title | safe }}</p>
       <div class="article-meta-row">
         <p class="eyebrow" style="margin-bottom:0">{{ eyebrow | safe }}</p>
         <span>{{ readTime }}</span>
@@ -93,7 +96,7 @@
       <div class="grid grid--5-7 reveal">
         <div>
           <div style="aspect-ratio:3/4;overflow:hidden;border:1px solid var(--grey-300)">
-            <img src="{{ coverImage }}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:{{ coverImagePosition or 'center' }}" loading="lazy">
+            <img src="/{{ coverImage }}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:{{ coverImagePosition or 'center' }}" loading="lazy">
           </div>
         </div>
         <div class="article-body" style="max-width:none">
@@ -119,8 +122,8 @@
       {{ content | safe }}
 
       <div class="article-share">
-        <span>Partager</span>
-        <a href="mailto:?subject={{ title | urlencode }}&body=Un%20article%20de%20Rolf%20Royer%20%3A%20https%3A%2F%2Frolfroyer.com{{ permalink | urlencode }}" class="text-link">Par email</a>
+        <span>{{ s.share }}</span>
+        <a href="mailto:?subject={{ title | urlencode }}&body={{ s.shareEmailIntro | urlencode }}%20%3A%20https%3A%2F%2Frolfroyer.com{{ permalink | urlencode }}" class="text-link">{{ s.shareEmail }}</a>
         <a href="https://www.linkedin.com/in/rolf-royer/" target="_blank" rel="noopener" class="text-link">LinkedIn</a>
       </div>
 
@@ -129,11 +132,11 @@
 
   <section class="section section--dark">
     <div class="container text-center reveal">
-      <p class="eyebrow" style="justify-content:center">{{ (ctaEyebrow or "Cette situation vous parle ?") | safe }}</p>
-      <h2 class="max-w-prose mx-auto">{{ (ctaHeadline or "Un premier échange permet d'évaluer si cet accompagnement peut vous être utile.") | safe }}</h2>
+      <p class="eyebrow" style="justify-content:center">{{ (ctaEyebrow or s.ctaEyebrow) | safe }}</p>
+      <h2 class="max-w-prose mx-auto">{{ (ctaHeadline or s.ctaHeadline) | safe }}</h2>
       <div class="cta-band__actions mt-md">
-        <a href="contact.html" class="btn btn--primary btn--on-dark">Échanger en toute confidentialité</a>
-        <a href="points-de-vue.html" class="btn btn--ghost">Retour aux points de vue</a>
+        <a href="/contact.html" class="btn btn--primary btn--on-dark">{{ s.headerCta }}</a>
+        <a href="/points-de-vue.html" class="btn btn--ghost">{{ s.backToInsights }}</a>
       </div>
     </div>
   </section>
@@ -144,33 +147,33 @@
   <div class="container">
     <div class="site-footer__grid">
       <div>
-        <a href="index.html" class="brand-mark">          <span class="brand-mark__text">Rolf Royer<small>Sparring partner de dirigeants</small></span>
+        <a href="/index.html" class="brand-mark">          <span class="brand-mark__text">Rolf Royer<small>Sparring partner de dirigeants</small></span>
         </a>
-        <p class="footer-tagline">Accompagnement de dirigeants, membres de COMEX et entrepreneurs en France et aux États-Unis.</p>
+        <p class="footer-tagline">{{ s.footerTagline }}</p>
       </div>
       <div>
-        <h4>Navigation</h4>
+        <h4>{{ s.footerNavTitle }}</h4>
         <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="accompagnements.html">Accompagnements</a></li>
-          <li><a href="pour-les-dirigeants.html">Pour les dirigeants</a></li>
-          <li><a href="methode.html">Méthode</a></li>
-          <li><a href="parcours.html">Parcours</a></li>
+          <li><a href="/index.html">{{ s.home }}</a></li>
+          <li><a href="/accompagnements.html">{{ s.nav.accompagnements }}</a></li>
+          <li><a href="/pour-les-dirigeants.html">{{ s.nav.pourLesDirigeants }}</a></li>
+          <li><a href="/methode.html">{{ s.nav.methode }}</a></li>
+          <li><a href="/parcours.html">{{ s.nav.parcours }}</a></li>
         </ul>
       </div>
       <div>
-        <h4>Ressources</h4>
+        <h4>{{ s.footerResourcesTitle }}</h4>
         <ul>
-          <li><a href="cas-clients.html">Cas clients</a></li>
-          <li><a href="points-de-vue.html">Points de vue</a></li>
-          <li><a href="a-propos.html">À propos</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="mentions-legales.html">Mentions légales</a></li>
-          <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+          <li><a href="/cas-clients.html">{{ s.nav.casClients }}</a></li>
+          <li><a href="/points-de-vue.html">{{ s.nav.pointsDeVue }}</a></li>
+          <li><a href="/a-propos.html">{{ s.nav.aPropos }}</a></li>
+          <li><a href="/contact.html">{{ s.nav.contact }}</a></li>
+          <li><a href="/mentions-legales.html">{{ s.mentionsLegales }}</a></li>
+          <li><a href="/confidentialite.html">{{ s.politiqueConfidentialite }}</a></li>
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h4>{{ s.footerContactTitle }}</h4>
         <ul>
           <li><a href="mailto:rolf.royer@visconti.partners">rolf.royer@visconti.partners</a></li>
           <li><a href="tel:+33673514809">+33 6 73 51 48 09</a></li>
@@ -180,15 +183,15 @@
     </div>
     <hr class="rule">
     <div class="site-footer__bottom">
-      <p>© <span data-current-year></span> Rolf Royer. Tous droits réservés.</p>
+      <p>© <span data-current-year></span> Rolf Royer. {{ s.copyright }}</p>
       <ul>
-        <li><a href="mentions-legales.html">Mentions légales</a></li>
-        <li><a href="confidentialite.html">Confidentialité</a></li>
+        <li><a href="/mentions-legales.html">{{ s.mentionsLegales }}</a></li>
+        <li><a href="/confidentialite.html">{{ s.confidentialite }}</a></li>
       </ul>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js" defer></script>
+<script src="/js/main.js" defer></script>
 </body>
 </html>

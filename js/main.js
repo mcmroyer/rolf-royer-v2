@@ -193,4 +193,23 @@
     updateCount();
     enjeuField.addEventListener('input', updateCount);
   }
+
+  /* ---- Points de vue: FR / EN toggle ---- */
+  var langSwitch = document.querySelector('.lang-switch');
+  var langButtons = document.querySelectorAll('.lang-switch__btn');
+  var hasEnglishArticle = document.querySelector('[data-lang="en"]');
+  if (langSwitch && !hasEnglishArticle) {
+    langSwitch.hidden = true; // nothing to switch to yet
+  } else if (langButtons.length) {
+    var cards = document.querySelectorAll('[data-lang]');
+    langButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var lang = btn.getAttribute('data-lang-filter');
+        langButtons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+        cards.forEach(function (card) {
+          card.hidden = card.getAttribute('data-lang') !== lang;
+        });
+      });
+    });
+  }
 })();

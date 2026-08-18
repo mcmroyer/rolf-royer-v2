@@ -18,6 +18,14 @@ collections:
     format: "frontmatter"
     fields:
       - { label: "Titre", name: "title", widget: "string", hint: "Sans point final, il est ajouté automatiquement." }
+      - label: "Langue"
+        name: "lang"
+        widget: "select"
+        default: "fr"
+        options:
+          - { label: "Français", value: "fr" }
+          - { label: "English", value: "en" }
+        hint: "Pour publier en deux langues, créez deux articles séparés (un par langue)."
       - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "Catégorie", name: "eyebrow", widget: "string", default: "Leadership", hint: "Ex: France – États-Unis, Leadership, Transformation…" }
       - { label: "Temps de lecture", name: "readTime", widget: "string", default: "5 min de lecture" }

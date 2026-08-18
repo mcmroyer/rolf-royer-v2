@@ -80,8 +80,13 @@ permalink: /points-de-vue.html
   <section class="section section--tight">
     <div class="container">
 
+      <div class="lang-switch" role="group" aria-label="Langue des articles">
+        <button type="button" class="lang-switch__btn is-active" data-lang-filter="fr">Français</button>
+        <button type="button" class="lang-switch__btn" data-lang-filter="en">English</button>
+      </div>
+
       {% for article in collections.articles | reverse %}
-      <a href="{{ article.url }}" class="card reveal" style="display:block; text-decoration:none">
+      <a href="{{ article.url }}" class="card reveal" data-lang="{{ article.data.lang }}" style="display:block; text-decoration:none"{% if article.data.lang == 'en' %} hidden{% endif %}>
         <div class="grid grid--5-7" style="align-items:center">
           <div class="article-cover article-cover--sm" aria-hidden="true" style="aspect-ratio:3/4">
             <img src="{{ article.data.coverImage }}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:{{ article.data.coverImagePosition or 'center' }};position:relative;z-index:1">
@@ -93,7 +98,7 @@ permalink: /points-de-vue.html
             </div>
             <h2>{{ article.data.title | safe }}.</h2>
             <p>{{ (article.data.excerpt or article.data.description) | safe }}</p>
-            <span class="article-card__link">Lire l'article
+            <span class="article-card__link">{% if article.data.lang == 'en' %}Read the article{% else %}Lire l'article{% endif %}
               <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </div>
