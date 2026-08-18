@@ -756,6 +756,7 @@ fieldset.form-field { border: none; padding: 0; margin: 0; }
 .site-footer__bottom a:hover { color: var(--accent-on-dark); }
 
 /* ---- Reveal on scroll ---- */
+[hidden] { display: none !important; }
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .reveal-delay-1.is-visible { transition-delay: 0.08s; }
