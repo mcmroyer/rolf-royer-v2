@@ -162,10 +162,10 @@ p { color: var(--grey-700); }
   position: relative;
   font-weight: 600;
   color: var(--navy);
-  background-image: linear-gradient(var(--accent), var(--accent));
+  background-image: linear-gradient(var(--accent-rare), var(--accent-rare));
   background-position: 0 100%;
   background-repeat: no-repeat;
-  background-size: 100% 1px;
+  background-size: 100% 2px;
   padding-bottom: 2px;
   transition: background-size var(--dur) var(--ease);
 }
@@ -339,8 +339,9 @@ p { color: var(--grey-700); }
   color: var(--off-white);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: var(--gutter);
+  padding-top: calc(84px + var(--gutter));
   overflow-y: auto;
   transform: translateY(-100%);
   transition: transform 0.5s var(--ease);

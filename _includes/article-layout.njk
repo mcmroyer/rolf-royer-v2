@@ -11,6 +11,9 @@
 <link rel="alternate" hreflang="{{ lang or 'fr' }}" href="https://rolfroyer.com{{ permalink }}">
 {% if altLangUrl %}<link rel="alternate" hreflang="{{ altLang }}" href="https://rolfroyer.com{{ altLangUrl }}">{% endif %}
 <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+<link rel="apple-touch-icon" href="/images/favicon-180.png">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{{ title | safe }} | Rolf Royer">
 <meta property="og:description" content="{{ (ogDescription or description) | safe }}">
@@ -192,6 +195,6 @@
   </div>
 </footer>
 
-<script src="/js/main.js" defer></script>
+<script src="/js/main.js?v=20260818" defer></script>
 </body>
 </html>
