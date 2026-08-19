@@ -19,22 +19,8 @@ module.exports = function (eleventyConfig) {
     if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}`;
     return url;
   });
-  // The 10 hand-written pages stay exactly as-is, copied through untouched.
-  // points-de-vue.html and the article are now generated from .njk/.md —
-  // named explicitly here (not a *.html glob) so their stale root copies
-  // (kept only for GitHub Pages, which can't run this build) never win.
-  const staticPages = [
-    "a-propos.html",
-    "accompagnements.html",
-    "confidentialite.html",
-    "contact.html",
-    "index.html",
-    "mentions-legales.html",
-    "methode.html",
-    "parcours.html",
-    "pour-les-dirigeants.html",
-  ];
-  staticPages.forEach((page) => eleventyConfig.addPassthroughCopy(page));
+  // All pages are now Eleventy templates (.njk), so their titles can be
+  // driven from _data/pageTitles.json and made editable via the CMS.
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("images");

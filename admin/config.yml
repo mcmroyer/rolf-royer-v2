@@ -8,6 +8,26 @@ public_folder: "images/blog-uploads"
 publish_mode: simple
 
 collections:
+  - name: "titres"
+    label: "Titres des pages"
+    label_singular: "un titre"
+    description: "Le grand titre en haut de chacune des pages principales du site. Pour empêcher deux mots de se séparer en fin de ligne, insérez un espace insécable entre eux (sur Mac : touche Option + barre d'espace)."
+    files:
+      - name: "pageTitles"
+        label: "Titres"
+        file: "_data/pageTitles.json"
+        fields:
+          - { label: "Accueil", name: "index", widget: "string" }
+          - { label: "Accompagnements", name: "accompagnements", widget: "string" }
+          - { label: "Pour les dirigeants", name: "pourLesDirigeants", widget: "string" }
+          - { label: "Méthode", name: "methode", widget: "string" }
+          - { label: "Parcours", name: "parcours", widget: "string" }
+          - { label: "Cas clients", name: "casClients", widget: "string" }
+          - { label: "À propos", name: "aPropos", widget: "string" }
+          - { label: "Contact", name: "contact", widget: "string" }
+          - { label: "Mentions légales", name: "mentionsLegales", widget: "string" }
+          - { label: "Confidentialité", name: "confidentialite", widget: "string" }
+
   - name: "articles"
     label: "Points de vue (articles)"
     label_singular: "un article"
